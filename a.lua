@@ -8,6 +8,7 @@ local tagsList = {
     ["hater do ksx"] = {ids = {3533749155}, color = Color3.fromRGB(1, 75, 160)},
     ["menor pecinha"] = {ids = {4950226100}, color = Color3.fromRGB(1, 75, 160)},
     ["soltaooruam"] = {ids = {3558520129}, color = Color3.fromRGB(255, 203, 219)},
-    ["soltaoboladin"] = {ids = {1442818339}, color = Color3.fromRGB(255, 203, 219)}
+    ["soltaoboladin"] = {ids = {1442818339}, color = Color3.fromRGB(255, 203, 219)},
+    ["broxa aos 21"] = {ids = {5022130490}, color = Color3.fromRGB(255, 203, 219)}
 }
 return tagsList
