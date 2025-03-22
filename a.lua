@@ -2,7 +2,7 @@ local tagsList = {
     ["Dono do roblox"] = {ids = {8046916119}, color = Color3.fromRGB(255, 0, 0)},
     ["Dono do mushyo"] = {ids = {5437370852}, color = Color3.fromRGB(160, 32, 240)},
     ["Developer"] = {ids = {584295859}, color = Color3.fromRGB(129, 0, 2)},
-    ["Tiktoker"] = {ids = {4447002172}, color = Color3.fromRGB(0, 0, 0)},
+    ["Tiktoker"] = {ids = {4447002172}, color = Color3.fromRGB(160, 32, 240)},
     ["Youtuber"] = {ids = {7329628136}, color = Color3.fromRGB(255, 105, 97)},
     -- ["Partner"] = {ids = {}, color = Color3.fromRGB(173, 216, 230)},
     ["Friend"] = {ids = {2894363622, 743607985}, color = Color3.fromRGB(255, 255, 0)},
