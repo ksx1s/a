@@ -16,7 +16,7 @@ local tagsList = {
     ["broxa aos 21"] = {ids = {5022130490}, color = Color3.fromRGB(255, 203, 219)},
     ["Veterano"] = {ids = {6193275716}, color = Color3.fromRGB(1, 75, 160)},
     --
-    ["risp ♥"] = {ids = {2247758467}, color = Color3.fromRGB(255, 255, 0)},
+    ["risp ♥"] = {ids = {2247758467, 7837117044}, color = Color3.fromRGB(255, 255, 0)},
     ["psilo ♥"] = {ids = {7635173078}, color = Color3.fromRGB(0, 255, 0)}
 }
 return tagsList
