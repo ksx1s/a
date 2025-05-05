@@ -1,6 +1,35 @@
 local Light = game:GetService("Lighting")
 
+_G._OriginalLightingSettings = _G._OriginalLightingSettings or nil
+_G._OriginalSkyProps = _G._OriginalSkyProps or nil
+
 if _G.ShadersToggled then
+    if not _G._OriginalLightingSettings then
+        _G._OriginalLightingSettings = {
+            Brightness = Light.Brightness,
+            ExposureCompensation = Light.ExposureCompensation,
+            ClockTime = Light.ClockTime,
+            Ambient = Light.Ambient,
+            OutdoorAmbient = Light.OutdoorAmbient,
+            ColorShift_Top = Light.ColorShift_Top,
+            ColorShift_Bottom = Light.ColorShift_Bottom,
+        }
+
+        local currentSky = Light:FindFirstChildWhichIsA("Sky")
+        if currentSky then
+            _G._OriginalSkyProps = {
+                SkyboxBk = currentSky.SkyboxBk,
+                SkyboxDn = currentSky.SkyboxDn,
+                SkyboxFt = currentSky.SkyboxFt,
+                SkyboxLf = currentSky.SkyboxLf,
+                SkyboxRt = currentSky.SkyboxRt,
+                SkyboxUp = currentSky.SkyboxUp,
+                StarCount = currentSky.StarCount,
+                SunAngularSize = currentSky.SunAngularSize,
+            }
+        end
+    end
+
     for _, v in ipairs(Light:GetChildren()) do
         if v:IsA("PostEffect") or v:IsA("Sky") then
             v:Destroy()
@@ -44,13 +73,36 @@ if _G.ShadersToggled then
     SunRays.Spread = 0.8
     SunRays.Parent = Light
 else
+    if _G._OriginalLightingSettings then
+        local s = _G._OriginalLightingSettings
+        Light.Brightness = s.Brightness
+        Light.ExposureCompensation = s.ExposureCompensation
+        Light.ClockTime = s.ClockTime
+        Light.Ambient = s.Ambient
+        Light.OutdoorAmbient = s.OutdoorAmbient
+        Light.ColorShift_Top = s.ColorShift_Top
+        Light.ColorShift_Bottom = s.ColorShift_Bottom
+        _G._OriginalLightingSettings = nil
+    end
+
     for _, v in ipairs(Light:GetChildren()) do
         if v:IsA("PostEffect") or v:IsA("Sky") then
             v:Destroy()
         end
     end
 
-    Light.Brightness = 2
-    Light.ExposureCompensation = 0
-    Light.ClockTime = 14.5
+    if _G._OriginalSkyProps then
+        local s = _G._OriginalSkyProps
+        local Sky = Instance.new("Sky")
+        Sky.SkyboxBk = s.SkyboxBk
+        Sky.SkyboxDn = s.SkyboxDn
+        Sky.SkyboxFt = s.SkyboxFt
+        Sky.SkyboxLf = s.SkyboxLf
+        Sky.SkyboxRt = s.SkyboxRt
+        Sky.SkyboxUp = s.SkyboxUp
+        Sky.StarCount = s.StarCount
+        Sky.SunAngularSize = s.SunAngularSize
+        Sky.Parent = Light
+        _G._OriginalSkyProps = nil
+    end
 end
